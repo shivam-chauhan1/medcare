@@ -50,13 +50,14 @@ export const sendNotification = async ({
     }
     // Send email
     const transporter = createTransport();
+    const formattedDate = new Date(date).toLocaleDateString();
     const emailBody = `
       <h2>Appointment Notification</h2>
       <p>Your appointment status is now <strong>${booking_status}</strong>.</p>
       <p><strong>Appointment ID:</strong> ${appointment_id}</p>
       <p><strong>Doctor:</strong> ${doctor_name}</p>
       <p><strong>Timing: </strong> ${startTime} to ${endTime}</p>
-      <p><strong>Date & Time:</strong> ${date}</p>
+      <p><strong>Date:</strong> ${formattedDate}</p>
       <p><strong>Location:</strong> ${locationValue}</p>
       <p><strong>Consultation Type:</strong> ${booking_type}</p>
       <p>Thank you for choosing our service.</p>
@@ -64,7 +65,7 @@ export const sendNotification = async ({
 
     await transporter.sendMail({
       from: `"Doctor-App" <${process.env.MAIL_ID}>`,
-      to: "rajeshsingh2882003@gmail.com",
+      to: user_email,
       subject: "Your Appointment Notification",
       html: emailBody,
     });

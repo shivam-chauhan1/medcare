@@ -26,7 +26,7 @@ export default function SearchBar({ onSearch, onReset }: SearchBarProps) {
           <Image src={searchIcon} alt="serach-icon" height={20} width={20} />
           <input
             type="search"
-            placeholder="search doctors"
+            placeholder="Search doctors"
             value={searchTerm}
             onChange={(e) => {
               setSearchTerm(e.target.value);

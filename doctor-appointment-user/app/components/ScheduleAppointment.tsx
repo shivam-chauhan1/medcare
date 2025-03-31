@@ -250,7 +250,6 @@ export default function ScheduleAppointment({
       <div className={styles.appointment_div}>
         <div>
           <h3>Schedule Appointment</h3>
-          <button>Book Appointment</button>
         </div>
         <div>
           <button
