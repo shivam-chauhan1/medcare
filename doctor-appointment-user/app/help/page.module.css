@@ -5,3 +5,263 @@
   align-items: center;
   justify-content: center;
 }
+
+.helpContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: system-ui, -apple-system, sans-serif;
+  color: #333;
+}
+
+.headerSection {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.headerIcon {
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.iconPlaceholder {
+  width: 80px;
+  height: 80px;
+  background-color: #e8f5ec;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconPlaceholder span {
+  font-size: 40px;
+}
+
+.emoji {
+  font-size: 32px;
+}
+
+.headerSection h1 {
+  font-size: 2.5rem;
+  color: #1c4a2a;
+  margin: 0 0 8px 0;
+  font-weight: 700;
+}
+
+.subheading {
+  font-size: 1.2rem;
+  color: #666;
+  margin: 0;
+}
+
+.emergencyCallSection {
+  background-color: #f8e8e8;
+  border-left: 4px solid #c41e1e;
+  padding: 24px;
+  border-radius: 8px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.emergencyCall {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.emergencyLabel {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #444;
+}
+
+.emergencyNumber {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #c41e1e;
+  text-decoration: none;
+}
+
+.emergencyNumber:hover {
+  text-decoration: underline;
+}
+
+.callInfo {
+  font-size: 1rem;
+  margin: 0;
+  color: #666;
+}
+
+.contactCardsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.contactCard {
+  background-color: #f8fcf9;
+  border: 1px solid #e0e8e0;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.contactCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.iconContainer {
+  background-color: #e8f5ec;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 16px auto;
+}
+
+.contactCard h3 {
+  font-size: 1.3rem;
+  color: #1c4a2a;
+  margin: 0 0 8px 0;
+}
+
+.contactNumber {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1c4a2a;
+  text-decoration: none;
+  margin-bottom: 12px;
+}
+
+.contactNumber:hover {
+  text-decoration: underline;
+}
+
+.contactCard p {
+  margin: 0;
+  color: #666;
+}
+
+.nearbyHospitalsSection {
+  margin-bottom: 48px;
+}
+
+.nearbyHospitalsSection h2 {
+  font-size: 1.8rem;
+  color: #1c4a2a;
+  margin: 0 0 24px 0;
+  text-align: center;
+}
+
+.hospitalsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.hospitalItem {
+  background-color: #fff;
+  border: 1px solid #e0e8e0;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.hospitalItem h4 {
+  font-size: 1.2rem;
+  margin: 0 0 8px 0;
+  color: #1c4a2a;
+}
+
+.hospitalItem p {
+  margin: 0 0 8px 0;
+  color: #666;
+}
+
+.hospitalActions {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.actionButton {
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+  background-color: #e8f5ec;
+  color: #1c4a2a;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.actionButton:hover {
+  background-color: #d0ebda;
+}
+
+.helpfulTipsSection {
+  margin-bottom: 48px;
+  background-color: #f9f9f9;
+  padding: 24px;
+  border-radius: 12px;
+}
+
+.helpfulTipsSection h2 {
+  font-size: 1.8rem;
+  color: #1c4a2a;
+  margin: 0 0 16px 0;
+}
+
+.tipsList {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.tipsList li {
+  margin-bottom: 12px;
+  line-height: 1.5;
+  color: #444;
+}
+
+.disclaimerSection {
+  border-top: 1px solid #e0e8e0;
+  padding-top: 24px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.disclaimerSection p {
+  margin: 0;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .headerSection h1 {
+    font-size: 2rem;
+  }
+
+  .emergencyNumber {
+    font-size: 1.8rem;
+  }
+
+  .contactNumber {
+    font-size: 1.3rem;
+  }
+
+  .contactCardsContainer,
+  .hospitalsList {
+    grid-template-columns: 1fr;
+  }
+}
