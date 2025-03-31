@@ -1,0 +1,51 @@
+.landingPage_text_section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #1c4a2a;
+  width: 100%;
+  padding: 12px 12px;
+  padding-left: 40px;
+  order: 4;
+  height: 100%;
+  gap: 40px;
+}
+
+.text_section_content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
+}
+.text_section_content h3 {
+  color: white;
+  align-self: flex-start;
+  /* text-align: center; */
+}
+
+.text_section_content p {
+  color: rgba(255, 255, 255, 0.7);
+
+  /* text-align: center; */
+}
+
+.text_section_btn_div button {
+  background-color: white;
+  color: #1c4a2a;
+  padding: 10px 24px;
+  border-radius: 10px;
+}
+
+@media screen and (min-width: 1000px) {
+  .landingPage_text_section {
+    height: 100%;
+    width: 80%;
+    padding: 10%;
+  }
+  .text_section_content h3 {
+    align-self: flex-start;
+  }
+  .text_section_content p {
+    align-self: flex-start;
+  }
+}

@@ -1,0 +1,35 @@
+.navButton_container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn_login {
+    border: 1px solid #E0E8E0;
+    /* Light greenish-grey */
+    border-radius: 8px;
+    padding: 6px 12px;
+    background: transparent;
+    color: black;
+    cursor: pointer;
+}
+
+.btn_register {
+    border: 1px solid #E0E8E0;
+    /* Light greenish-grey */
+    border-radius: 8px;
+    padding: 6px 12px;
+    background: #1C4A2A;
+    color: white;
+    cursor: pointer;
+}
+
+@media screen and (min-width:500px) {
+    .navButton_container {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+    }
+}

@@ -1,0 +1,247 @@
+.review_container {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    background-color: #ffffff;
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.rating_input_section, .reviews_display_section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    background-color: #f8f8f8;
+    padding: 24px;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+}
+
+.rating_input_section h2, .reviews_display_section h2 {
+    color: #1c4a2a;
+    font-size: clamp(1.4rem, 3vw, 1.6rem);
+    font-weight: 600;
+    margin: 0;
+}
+
+.rating_form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.rating_stars {
+    display: flex;
+    gap: 8px;
+}
+
+.star {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.star:hover {
+    transform: scale(1.1);
+}
+
+.star.active img {
+    filter: brightness(0) saturate(100%) invert(32%) sepia(98%) saturate(1234%) hue-rotate(118deg) brightness(95%) contrast(101%);
+}
+
+.comment_input {
+    width: 100%;
+    min-height: 120px;
+    padding: 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    line-height: 1.6;
+    resize: vertical;
+    font-family: inherit;
+}
+
+.comment_input:focus {
+    outline: none;
+    border-color: #1c4a2a;
+    box-shadow: 0 0 0 2px rgba(28, 74, 42, 0.1);
+}
+
+.submit_button {
+    background-color: #1c4a2a;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+}
+
+.submit_button:hover {
+    background-color: #153a22;
+    transform: translateY(-2px);
+}
+
+.reviews_list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.review_card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+.review_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.pending_status {
+    background-color: #fff3cd;
+    color: #856404;
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.review_header h3 {
+    color: #1c4a2a;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.review_rating {
+    display: flex;
+    gap: 4px;
+}
+
+.review_comment {
+    color: #444;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0 0 12px 0;
+}
+
+.review_date {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.pagination_button {
+    background-color: #1c4a2a;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pagination_button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.pagination_button:not(:disabled):hover {
+    background-color: #153a22;
+    transform: translateY(-2px);
+}
+
+.page_info {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.pending_review_card {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pending_review_card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pending_review_form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+}
+
+.cancel_button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cancel_button:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .review_container {
+        width: 95%;
+        padding: 24px;
+        gap: 24px;
+    }
+
+    .rating_input_section, .reviews_display_section {
+        padding: 20px;
+    }
+
+    .review_header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .review_container {
+        width: 100%;
+        padding: 16px;
+        margin: 0;
+        border-radius: 0;
+    }
+
+    .rating_input_section, .reviews_display_section {
+        padding: 16px;
+    }
+
+    .pagination {
+        flex-direction: column;
+        gap: 12px;
+    }
+} 

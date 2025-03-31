@@ -1,0 +1,135 @@
+.patient_container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background-color: #ffffff;
+  width: 90%;
+  max-width: 800px;
+  padding: 20px;
+  border-radius: 8px;
+  margin: auto auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  height: fit-content;
+}
+
+.patient_header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.patient_icon {
+  background-color: #f8f8f8;
+  padding: 12px;
+  border-radius: 50%;
+  border: 2px solid #1c4a2a;
+}
+
+.patient_header h2 {
+  color: #1c4a2a;
+  font-size: clamp(1.4rem, 3vw, 1.6rem);
+  font-weight: 600;
+  margin: 0;
+}
+
+.patient_form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: inherit;
+}
+
+.form_group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form_group label {
+  color: #1c4a2a;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.form_group input,
+.form_group select,
+.form_group textarea {
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.form_group input:focus,
+.form_group select:focus,
+.form_group textarea:focus {
+  outline: none;
+  border-color: #1c4a2a;
+  box-shadow: 0 0 0 2px rgba(28, 74, 42, 0.1);
+}
+
+.form_row {
+  display: flex;
+  gap: 24px;
+}
+
+.form_row .form_group {
+  flex: 1;
+}
+
+.form_group textarea {
+  resize: vertical;
+  min-height: 120px;
+  font-family: inherit;
+}
+
+.submit_button {
+  background-color: #1c4a2a;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+}
+
+.submit_button:hover {
+  background-color: #153a22;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(28, 74, 42, 0.1);
+}
+
+@media (max-width: 800px) {
+  .patient_container {
+    width: 80%;
+    padding: 24px;
+    gap: 20px;
+  }
+
+  .form_row {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 500px) {
+  .patient_container {
+    width: 90%;
+    padding: 16px;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .patient_header {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+}

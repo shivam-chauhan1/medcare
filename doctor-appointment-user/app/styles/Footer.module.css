@@ -1,0 +1,21 @@
+.footer_container
+{
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px  solid #DEDEDE;
+    padding : 24px 40px;
+    gap: 48px;
+}
+
+.copyright p{
+    color: #8C8C8C;
+}
+
+.social_media{
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}

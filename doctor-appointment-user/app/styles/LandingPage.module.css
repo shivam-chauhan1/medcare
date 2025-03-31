@@ -1,0 +1,85 @@
+.landingPage_container {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  align-items: center;
+  height: 100%;
+}
+.landingPage_content_warpper {
+  width: 100%;
+  height: 100%;
+}
+.landingPage_img_section {
+  width: 100%;
+  order: 1;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  height: 50%;
+}
+
+.landingPage_img_section > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 70% 30%;
+}
+
+.appointment_component {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0px;
+  background-image: url("/images/appointmentBgImg.svg");
+  background-size: cover;
+  background-position: center;
+  overflow-y: auto;
+}
+
+@media screen and (min-width: 1000px) {
+  .landingPage_container {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    gap: 0; /* Ensure no extra spacing */
+    align-items: center;
+    flex-flow: row-reverse;
+  }
+  .landingPage_content_warpper {
+    display: flex;
+    flex-direction: column;
+    background-color: #1c4a2a;
+    width: 50%;
+    padding: 12px 12px;
+    padding-left: 40px;
+    order: 4;
+    gap: 16px;
+  }
+
+  .landingPage_text_section {
+    height: 100%;
+    width: 50%;
+  }
+  .text_section_content h3 {
+    align-self: flex-start;
+  }
+  .text_section_content p {
+    align-self: flex-start;
+  }
+
+  .landingPage_img_section {
+    height: 100%;
+    width: 50%;
+  }
+
+  .appointment_component {
+    width: 50%;
+  }
+}

@@ -1,0 +1,130 @@
+.login_container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("/images/login_bg.svg"); /* Correct path */
+  background-size: cover;
+  background-position: center;
+}
+
+.login_layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  width: 80%;
+  background-color: rgba(239, 239, 239, 0.6);
+  backdrop-filter: blur(50%);
+  border: 1px solid rgba(239, 239, 239, 0.6);
+  border-radius: 16px;
+  padding: 24px 30px;
+}
+
+.login_title {
+  width: 100%;
+}
+
+.login_title h3 {
+  color: rgba(14, 37, 21, 1);
+}
+
+.signup_option {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 4px;
+  width: 100%;
+}
+
+.signup_option p {
+  color: #8c8c8c;
+}
+
+.signup_option input {
+  all: unset;
+  color: rgba(28, 74, 42, 1);
+  cursor: pointer;
+}
+
+.form_div {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.label_input_flex_div {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+.form_div label {
+  color: #8c8c8c;
+}
+
+.form_div button {
+  padding: 10px 14px;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.input_div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  background-color: white;
+  padding: 16px 20px;
+  border-radius: 10px;
+}
+
+.input_div input {
+  /* padding: 10px 14px; */
+  /* border-radius: 10px; */
+  border: none;
+  width: 100%;
+}
+
+.input_div input:focus {
+  outline: none;
+}
+
+.wrapper_input {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  width: 100%;
+  align-items: center;
+}
+.login_btn_div button {
+  width: 100%;
+  background-color: #1c4a2a;
+}
+
+.reset_btn_div button {
+  width: 100%;
+  background-color: #c6b09a;
+}
+
+.forget_password_div p {
+  text-align: center;
+}
+
+@media screen and (min-width: 500px) {
+  .login_layout {
+    width: 65%;
+  }
+}
+@media screen and (min-width: 800px) {
+  .login_layout {
+    width: 500px;
+  }
+}

@@ -1,0 +1,65 @@
+.searchBar_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 90%;
+    gap: 40px;
+    border-bottom: 1px solid #DEDEDE;
+}
+
+.searchBar_container h3{
+    color: #0E2515;
+    max-width: 490px;
+    text-align: center;
+    width: 90%;
+}
+.searchBar_wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid #374957;
+    border-radius: 10px;
+    width: 85%;
+    padding-left: 10px;
+    
+}
+
+.searchBar_wrapper button{
+    width: 100%;
+    background-color: #1C4A2A;
+    color: white;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 12px;
+   width: 30%;
+}
+
+.icon_serachBar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    width: 70%;
+    
+}
+
+.icon_serachBar input {
+    outline:none;
+    width: 100%;
+    border: none;
+}
+
+@media screen and (min-width:500px) {
+
+    .searchBar_wrapper{
+        width: 80%;
+    }
+    .searchBar_wrapper button{
+        width: 20%;
+    }
+    .icon_serachBar{
+        width: 80%;
+    }
+}

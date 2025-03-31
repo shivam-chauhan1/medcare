@@ -1,0 +1,42 @@
+.navLinks_container ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  
+  .navLinks_container ul li {
+    padding: 8px;
+    font-size: 14px;
+    font-weight: 500; 
+     
+  }
+
+  .navLinks_container ul li a {
+    text-decoration: none; 
+    cursor: pointer;
+    color: #8C8C8C; 
+    
+  }
+  
+  .navLinks_container ul :first-child a{
+    color: #1C4A2A;
+  }
+
+
+  @media screen and (min-width:800px) {
+    .navLinks_container
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .navLinks_container ul {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+  }
+  
+ 
+  
