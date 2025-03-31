@@ -43,7 +43,7 @@ export default function Login() {
                 <input
                   type="email"
                   name="email"
-                  placeholder="emmawatson@gmail.com"
+                  placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
@@ -60,6 +60,7 @@ export default function Login() {
                 <input
                   type={showPassword ? "text" : "password"}
                   name="password"
+                  placeholder="Enter your password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
@@ -90,10 +91,6 @@ export default function Login() {
             >
               Reset
             </button>
-          </div>
-
-          <div className={styles.forget_password_div}>
-            <p>Forget Password?</p>
           </div>
         </form>
       </div>

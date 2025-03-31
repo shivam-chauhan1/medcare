@@ -71,7 +71,7 @@ export default function SignUp() {
                 <input
                   type="email"
                   name="email"
-                  placeholder="emmawatson@gmail.com"
+                  placeholder="Enter your email"
                   value={formData.email}
                   onChange={handleChange}
                   required
@@ -88,6 +88,7 @@ export default function SignUp() {
                 <input
                   type={showPassword ? "text" : "password"}
                   name="password"
+                  placeholder="Enter your password"
                   value={formData.password}
                   onChange={handleChange}
                   required
@@ -113,10 +114,6 @@ export default function SignUp() {
             <button type="button" onClick={handleReset}>
               Reset
             </button>
-          </div>
-
-          <div className={styles.forget_password_div}>
-            <p>Forgot Password?</p>
           </div>
         </form>
       </div>
