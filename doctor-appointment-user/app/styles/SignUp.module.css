@@ -132,3 +132,18 @@
     width: 500px;
   }
 }
+
+.error_message {
+  color: #e53e3e;
+  font-size: 0.8rem;
+  margin-top: 4px;
+  margin-left: 4px;
+}
+
+.domain_hint {
+  color: #718096;
+  font-size: 0.75rem;
+  margin-top: 4px;
+  margin-left: 4px;
+  font-style: italic;
+}

@@ -14,10 +14,18 @@ const commonValidations = {
   email: () =>
     Joi.string()
       .email({ tlds: { allow: true } })
+      .custom((value, helpers) => {
+        // Check if the email ends with gmail.com or tothenew.com
+        if (!value.endsWith("@gmail.com") && !value.endsWith("@tothenew.com")) {
+          return helpers.error("string.domain", { value });
+        }
+        return value;
+      })
       .messages({
         "string.email": "Invalid email format",
         "string.empty": "Email is required",
         "any.required": "Email is required",
+        "string.domain": "Only Gmail and ToTheNew email domains are allowed",
       }),
 
   password: () =>

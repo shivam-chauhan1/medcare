@@ -1,21 +1,40 @@
 "use client";
-import React, { useState } from "react";
 import styles from "@/app/styles/Login.module.css";
-import Image from "next/image";
 import emailIcon from "@/public/images/@icon.svg";
-import lockIcon from "@/public/images/lock_icon.svg";
 import eyeIcon from "@/public/images/eye_icon.svg";
-import { useAuth } from "../contextApi/authContext";
+import lockIcon from "@/public/images/lock_icon.svg";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
+import React, { useState } from "react";
+import { useAuth } from "../contextApi/authContext";
 
 export default function Login() {
   const { login } = useAuth();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [emailError, setEmailError] = useState<string>("");
   const router = useRouter();
+
+  const validateEmail = (email: string): boolean => {
+    const allowedDomains = ["@gmail.com", "@tothenew.com"];
+    return allowedDomains.some((domain) => email.endsWith(domain));
+  };
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+    setEmailError("");
+  };
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    // Validate email domain
+    if (!validateEmail(email)) {
+      setEmailError("Only Gmail and ToTheNew email domains are allowed");
+      return;
+    }
+
     login(email, password);
   };
 
@@ -45,11 +64,14 @@ export default function Login() {
                   name="email"
                   placeholder="Enter your email"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={handleEmailChange}
                   required
                 />
               </div>
             </div>
+            {emailError && (
+              <div className={styles.error_message}>{emailError}</div>
+            )}
           </div>
 
           <div className={styles.label_input_flex_div}>
@@ -87,10 +109,15 @@ export default function Login() {
               onClick={() => {
                 setEmail("");
                 setPassword("");
+                setEmailError("");
               }}
             >
               Reset
             </button>
+          </div>
+
+          <div className={styles.forget_password_div}>
+            <p>Forget Password?</p>
           </div>
         </form>
       </div>

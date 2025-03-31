@@ -1,13 +1,14 @@
 "use client";
-import { useState } from "react";
 import styles from "@/app/styles/SignUp.module.css";
 import emailIcon from "@/public/images/@icon.svg";
+import eyeIcon from "@/public/images/eye_icon.svg";
 import lockIcon from "@/public/images/lock_icon.svg";
 import nameIcon from "@/public/images/name_icon.svg";
-import eyeIcon from "@/public/images/eye_icon.svg";
 import Image from "next/image";
-import { useAuth } from "../contextApi/authContext";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { useAuth } from "../contextApi/authContext";
+
 export default function SignUp() {
   const { register } = useAuth();
   const [formData, setFormData] = useState({
@@ -16,19 +17,39 @@ export default function SignUp() {
     password: "",
   });
   const [showPassword, setShowPassword] = useState(false);
+  const [emailError, setEmailError] = useState<string>("");
   const router = useRouter();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+
+    // Clear email error when the user modifies the email field
+    if (name === "email") {
+      setEmailError("");
+    }
+  };
+
+  const validateEmail = (email: string): boolean => {
+    const allowedDomains = ["@gmail.com", "@tothenew.com"];
+    return allowedDomains.some((domain) => email.endsWith(domain));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Validate email domain
+    if (!validateEmail(formData.email)) {
+      setEmailError("Only Gmail and ToTheNew email domains are allowed");
+      return;
+    }
+
     register(formData.name, formData.email, formData.password);
   };
 
   const handleReset = () => {
     setFormData({ name: "", email: "", password: "" });
+    setEmailError("");
   };
 
   return (
@@ -78,6 +99,9 @@ export default function SignUp() {
                 />
               </div>
             </div>
+            {emailError && (
+              <div className={styles.error_message}>{emailError}</div>
+            )}
           </div>
 
           <div className={styles.label_input_flex_div}>
@@ -114,6 +138,10 @@ export default function SignUp() {
             <button type="button" onClick={handleReset}>
               Reset
             </button>
+          </div>
+
+          <div className={styles.forget_password_div}>
+            <p>Forgot Password?</p>
           </div>
         </form>
       </div>
