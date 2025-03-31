@@ -1,158 +1,191 @@
-.card_container{
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    background-color: #F8FCF9;
-    border: 1px solid #E0E8E0;
-    border-radius: 16px;
-    justify-content: space-between;
-    align-items: center;
-    padding: 32px 19px;
-    flex-grow: 1;
-    /* width: 100%; */
+.card_container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background-color: #f8fcf9;
+  border: 1px solid #e0e8e0;
+  border-radius: 16px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 19px;
+  flex-grow: 1;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  cursor: pointer;
 }
 
-.doctor_profile{
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    justify-content: space-between;
-    align-items: center;
-    width: 90%;
+.card_container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
 }
 
-.doctor_profile > img{
-    border-radius: 99px;
+.doctor_profile {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
-.doctor_description{
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+.doctor_profile > img {
+  border-radius: 99px;
+  object-fit: cover;
 }
 
-.name_degree_div{
-    display: flex;
-    flex-direction: row;
-    gap: 4px;
-    justify-content: center;
-    align-items: center;
+.doctor_description {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  align-items: center;
+}
+
+.name_degree_div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
 }
 
 .name_degree_div h3 {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #1F2937;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
 }
 
-.typeOfDoctor_YOE{
-    display: flex;
-    flex-direction: row;
-    gap: 8px;
-    justify-content: center;
-    align-items: center;
+.name_degree_div .degree {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #4b5563;
+  margin: 0;
 }
 
-.flex_img_para{
-    display: flex;
-    flex-direction: row;
-    gap: 5px;
-    justify-content: center;
-    align-items: center;
+.typeOfDoctor_YOE {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.flex_img_para {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
 }
 
 .flex_img_para p {
-    color: #4B5563;
-    font-size: 0.875rem;
+  color: #4b5563;
+  font-size: 0.875rem;
+  margin: 0;
 }
 
 .location {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: #4B5563;
-    font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #4b5563;
+  font-size: 0.875rem;
 }
 
 .biography {
-    color: #6B7280;
-    font-size: 0.875rem;
-    line-height: 1.5;
+  color: #6b7280;
+  font-size: 0.875rem;
+  line-height: 1.5;
 }
 
 .diseases {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .diseases h4 {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: #1F2937;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #1f2937;
 }
 
 .disease_tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .disease_tag {
-    background-color: #F3F4F6;
-    color: #4B5563;
-    padding: 0.25rem 0.75rem;
-    border-radius: 1rem;
-    font-size: 0.75rem;
+  background-color: #f3f4f6;
+  color: #4b5563;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
 }
 
-.rating_div{
-    display: flex;
-    flex-direction: row;
-    gap: 4px;
+.rating_div {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
 }
 
 .rating_div p {
-    color: #4B5563;
-    font-size: 0.875rem;
+  color: #4b5563;
+  font-size: 0.875rem;
+  margin: 0;
 }
 
 .stars_div {
-    display: flex;
-    gap: 0.25rem;
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
 }
 
 .appointment_btn_div {
-    border: 1px solid #DEDEDE;
-    border-radius: 10px;
-    width: 90%;
+  border: 1px solid #dedede;
+  border-radius: 10px;
+  width: 100%;
 }
 
-.appointment_btn_div button{
-    width: 100%;
-    border-radius: 10px;
-    background-color: #F8FCF9;
-    height: 100%;
-    border: none;
-    padding: 12px 40px;
+.appointment_btn_div button {
+  width: 100%;
+  border-radius: 10px;
+  background-color: #f8fcf9;
+  height: 100%;
+  border: none;
+  padding: 12px 40px;
+  color: #1c4a2a;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
 }
 
-@media (max-width: 768px) {
-    .doctor_profile {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
+.appointment_btn_div button:hover {
+  background-color: #e8f5ec;
+}
 
-    .typeOfDoctor_YOE {
-        justify-content: center;
-    }
+@media (min-width: 768px) {
+  .doctor_description {
+    align-items: flex-start;
+  }
 
-    .location {
-        justify-content: center;
-    }
+  .name_degree_div {
+    align-items: flex-start;
+    text-align: left;
+  }
 
-    .name_degree_div {
-        justify-content: center;
-    }
+  .typeOfDoctor_YOE {
+    justify-content: flex-start;
+  }
+
+  .rating_div {
+    justify-content: flex-start;
+  }
 }

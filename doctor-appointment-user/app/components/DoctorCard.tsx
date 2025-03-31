@@ -1,13 +1,13 @@
 "use client";
-import React from "react";
 import styles from "@/app/styles/DoctorCard.module.css";
+import defaultProfile from "@/public/images/doctor_pic.svg";
+import hourGlass from "@/public/images/hourGlass.svg";
+import oneStar from "@/public/images/one_star.svg";
+import stethoscope from "@/public/images/Stethoscope.svg";
+import zeroStar from "@/public/images/zero_star.svg";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import oneStar from "@/public/images/one_star.svg";
-import zeroStar from "@/public/images/zero_star.svg";
-import hourGlass from "@/public/images/hourGlass.svg";
-import stethoscope from "@/public/images/Stethoscope.svg";
-import defaultProfile from "@/public/images/doctor_pic.svg";
+import React from "react";
 
 interface Doctor {
   doctor_id: string;
@@ -49,21 +49,26 @@ export default function DoctorCard({ doctor }: DoctorCardProps) {
         />
         <div className={styles.doctor_description}>
           <div className={styles.name_degree_div}>
-            <h3>Dr {doctor.name},</h3>
-            <h3>{doctor.degree}</h3>
+            <h3>Dr. {doctor.name}</h3>
+            <p className={styles.degree}>{doctor.degree}</p>
           </div>
           <div className={styles.typeOfDoctor_YOE}>
             <div className={styles.flex_img_para}>
               <Image
                 src={stethoscope}
-                alt="symbol"
+                alt="specialty"
                 height={15.01}
                 width={17.5}
               />
               <p>{doctor.specialty.join(", ")}</p>
             </div>
             <div className={styles.flex_img_para}>
-              <Image src={hourGlass} alt="symbol" height={15.01} width={17.5} />
+              <Image
+                src={hourGlass}
+                alt="experience"
+                height={15.01}
+                width={17.5}
+              />
               <p>{doctor.experience_year} Years</p>
             </div>
           </div>
