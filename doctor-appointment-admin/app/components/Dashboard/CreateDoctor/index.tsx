@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from 'react';
-import styles from '@/app/styles/CreateDoctor.module.css';
+import { useState } from "react";
+import styles from "@/app/styles/CreateDoctor.module.css";
 
 interface DoctorFormData {
   name: string;
@@ -19,72 +19,80 @@ interface DoctorFormData {
 
 export default function CreateDoctor() {
   const [formData, setFormData] = useState<DoctorFormData>({
-    name: '',
-    email: '',
+    name: "",
+    email: "",
     average_rating: 0,
     experience_year: 0,
-    degree: '',
-    biography: '',
-    photo_url: '',
-    location: '',
+    degree: "",
+    biography: "",
+    photo_url: "",
+    location: "",
     specialty: [],
     disease: [],
-    gender: '',
+    gender: "",
   });
 
-  const [specialtyInput, setSpecialtyInput] = useState('');
-  const [diseaseInput, setDiseaseInput] = useState('');
-  const [message, setMessage] = useState('');
+  const [specialtyInput, setSpecialtyInput] = useState("");
+  const [diseaseInput, setDiseaseInput] = useState("");
+  const [message, setMessage] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/createDoctor', {
-        method: 'POST',
+      const response = await fetch("http://localhost:5000/createDoctor", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
+          "Content-Type": "application/json",
+          Accept: "application/json",
         },
         body: JSON.stringify(formData),
-        credentials: 'include',
+        credentials: "include",
       });
 
       const data = await response.json();
 
       if (response.ok) {
-        setMessage('Doctor created successfully!');
+        setMessage("Doctor created successfully!");
         setFormData({
-          name: '',
-          email: '',
+          name: "",
+          email: "",
           average_rating: 0,
           experience_year: 0,
-          degree: '',
-          biography: '',
-          photo_url: '',
-          location: '',
+          degree: "",
+          biography: "",
+          photo_url: "",
+          location: "",
           specialty: [],
           disease: [],
-          gender: '',
+          gender: "",
         });
       } else {
-        setMessage(`Failed to create doctor: ${data.message || 'Please try again.'}`);
+        setMessage(
+          `Failed to create doctor: ${data.message || "Please try again."}`
+        );
       }
     } catch (error) {
-      setMessage('Error creating doctor. Please try again.');
+      setMessage("Error creating doctor. Please try again.");
     }
   };
 
   const addSpecialty = () => {
     if (specialtyInput && !formData.specialty.includes(specialtyInput)) {
-      setFormData({ ...formData, specialty: [...formData.specialty, specialtyInput] });
-      setSpecialtyInput('');
+      setFormData({
+        ...formData,
+        specialty: [...formData.specialty, specialtyInput],
+      });
+      setSpecialtyInput("");
     }
   };
 
   const addDisease = () => {
     if (diseaseInput && !formData.disease.includes(diseaseInput)) {
-      setFormData({ ...formData, disease: [...formData.disease, diseaseInput] });
-      setDiseaseInput('');
+      setFormData({
+        ...formData,
+        disease: [...formData.disease, diseaseInput],
+      });
+      setDiseaseInput("");
     }
   };
 
@@ -122,7 +130,9 @@ export default function CreateDoctor() {
           <input
             type="email"
             value={formData.email}
-            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, email: e.target.value })
+            }
             className={styles.input}
             required
           />
@@ -136,7 +146,12 @@ export default function CreateDoctor() {
             min="0"
             max="5"
             value={formData.average_rating}
-            onChange={(e) => setFormData({ ...formData, average_rating: parseFloat(e.target.value) })}
+            onChange={(e) =>
+              setFormData({
+                ...formData,
+                average_rating: parseFloat(e.target.value),
+              })
+            }
             className={styles.input}
             required
           />
@@ -148,7 +163,12 @@ export default function CreateDoctor() {
             type="number"
             min="0"
             value={formData.experience_year}
-            onChange={(e) => setFormData({ ...formData, experience_year: parseInt(e.target.value) })}
+            onChange={(e) =>
+              setFormData({
+                ...formData,
+                experience_year: parseInt(e.target.value),
+              })
+            }
             className={styles.input}
             required
           />
@@ -159,7 +179,9 @@ export default function CreateDoctor() {
           <input
             type="text"
             value={formData.degree}
-            onChange={(e) => setFormData({ ...formData, degree: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, degree: e.target.value })
+            }
             className={styles.input}
             required
           />
@@ -169,7 +191,9 @@ export default function CreateDoctor() {
           <label className={styles.label}>Biography</label>
           <textarea
             value={formData.biography}
-            onChange={(e) => setFormData({ ...formData, biography: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, biography: e.target.value })
+            }
             className={styles.textarea}
             rows={3}
             required
@@ -181,7 +205,9 @@ export default function CreateDoctor() {
           <input
             type="url"
             value={formData.photo_url}
-            onChange={(e) => setFormData({ ...formData, photo_url: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, photo_url: e.target.value })
+            }
             className={styles.input}
             required
           />
@@ -192,7 +218,9 @@ export default function CreateDoctor() {
           <input
             type="text"
             value={formData.location}
-            onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, location: e.target.value })
+            }
             className={styles.input}
             required
           />
@@ -270,7 +298,9 @@ export default function CreateDoctor() {
           <label className={styles.label}>Gender</label>
           <select
             value={formData.gender}
-            onChange={(e) => setFormData({ ...formData, gender: e.target.value })}
+            onChange={(e) =>
+              setFormData({ ...formData, gender: e.target.value })
+            }
             className={styles.input}
             required
           >
@@ -281,18 +311,19 @@ export default function CreateDoctor() {
         </div>
 
         {message && (
-          <div className={`${styles.message} ${message.includes('successfully') ? styles.success : styles.error}`}>
+          <div
+            className={`${styles.message} ${
+              message.includes("successfully") ? styles.success : styles.error
+            }`}
+          >
             {message}
           </div>
         )}
 
-        <button
-          type="submit"
-          className={styles.submitButton}
-        >
+        <button type="submit" className={styles.submitButton}>
           Create Doctor
         </button>
       </form>
     </div>
   );
-} 
+}
