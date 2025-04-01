@@ -110,7 +110,7 @@ export const editDoctor = async (req, res) => {
       "photo_url",
       "location",
       "average_rating",
-      "speciality",
+      "specialty",
       "disease",
       "gender",
     ];
