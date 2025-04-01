@@ -282,7 +282,7 @@ export default function ScheduleAppointment({
         )}
       </div>
       <div className={styles.month_div}>
-        <div className={` ${styles.leftArrowDiv} ${styles.arrowImageDiv} `}>
+        <div className={`${styles.arrowImageDiv} `}>
           <Image
             src={leftArrowIcon}
             alt="left arrow"
