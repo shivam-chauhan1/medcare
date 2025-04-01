@@ -32,6 +32,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         const response = await fetch("http://localhost:5000/checkLoggedIn", {
           method: "GET",
           credentials: "include",
+          headers: {
+            "x-app-type": "admin", // Include the admin app type header
+          },
         });
 
         if (response.ok) {
@@ -54,7 +57,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     try {
       const response = await fetch("http://localhost:5000/login", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          "x-app-type": "admin", // Include the admin app type header
+        },
         body: JSON.stringify({ email, password }),
         credentials: "include",
       });
@@ -63,10 +69,16 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         setIsLogin(true);
         router.push("/dashboard");
       } else {
-        console.error("Login failed");
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Login failed");
       }
-    } catch (error) {
-      console.error("Error logging in:", error);
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        console.error("Error logging in:", error.message);
+        alert(error.message); // Display error message to the user
+      } else {
+        console.error("An unknown error occurred during login.");
+      }
     }
   };
 

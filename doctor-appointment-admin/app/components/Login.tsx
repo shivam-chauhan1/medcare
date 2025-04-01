@@ -3,18 +3,27 @@ import React, { useState } from "react";
 import styles from "@/app/styles/Login.module.css";
 import { MdEmail, MdLock, MdVisibility, MdVisibilityOff } from "react-icons/md";
 import { useAuth } from "../contextApi/authContext";
-import { useRouter } from "next/navigation";
 
-export default function Login() {
+const LoginForm = () => {
   const { login } = useAuth();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [showPassword, setShowPassword] = useState<boolean>(false);
-  const router = useRouter();
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    login(email, password);
+    setError(null); // Clear previous errors
+
+    try {
+      await login(email, password);
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        setError(err.message); // Set error message for UI display
+      } else {
+        setError("An unknown error occurred."); // Fallback error message
+      }
+    }
   };
 
   return (
@@ -22,14 +31,6 @@ export default function Login() {
       <div className={styles.login_layout}>
         <div className={styles.login_title}>
           <h3>Login</h3>
-        </div>
-        <div className={styles.signup_option}>
-          <p>Are you a new member? </p>
-          <input
-            type="button"
-            value="Sign up here."
-            onClick={() => router.push("/register")}
-          />
         </div>
 
         <form className={styles.form_div} onSubmit={handleSubmit}>
@@ -49,7 +50,6 @@ export default function Login() {
               </div>
             </div>
           </div>
-
           <div className={styles.label_input_flex_div}>
             <label htmlFor="password">Password</label>
             <div className={styles.input_div}>
@@ -77,11 +77,11 @@ export default function Login() {
               )}
             </div>
           </div>
-
+          {error && <p style={{ color: "red" }}>{error}</p>}{" "}
+          {/* Display error */}
           <div className={styles.login_btn_div}>
             <button type="submit">Login</button>
           </div>
-
           <div className={styles.reset_btn_div}>
             <button
               type="button"
@@ -97,4 +97,6 @@ export default function Login() {
       </div>
     </div>
   );
-}
+};
+
+export default LoginForm;

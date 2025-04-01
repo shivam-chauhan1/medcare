@@ -97,6 +97,11 @@ export const login = async (req, res) => {
       return res.status(401).json({ message: "Invalid email or password" });
     }
 
+    // check if the user is an admin
+    if (req.headers["x-app-type"] === "admin" && user.role !== "admin") {
+      return res.status(403).json({ message: "Access denied: Admins only" });
+    }
+
     // compare passwords
     const isPasswordValid = await bcrypt.compare(
       password,

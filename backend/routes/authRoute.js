@@ -8,6 +8,7 @@ import {
   googleAuth,
 } from "../controllers/authController.js";
 import isAuth from "../middleware/isAuth.js";
+import isAdmin from "../middleware/isAdmin.js";
 
 const router = Router();
 
