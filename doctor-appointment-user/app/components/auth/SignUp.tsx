@@ -1,59 +1,89 @@
 "use client";
-import styles from "@/app/styles/Login.module.css";
+import styles from "@/app/styles/SignUp.module.css";
 import emailIcon from "@/public/images/@icon.svg";
 import eyeIcon from "@/public/images/eye_icon.svg";
 import lockIcon from "@/public/images/lock_icon.svg";
+import nameIcon from "@/public/images/name_icon.svg";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
-import { useAuth } from "../contextApi/authContext";
+import { useState } from "react";
+import { useAuth } from "../../contextApi/authContext";
 
-export default function Login() {
-  const { login } = useAuth();
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-  const [showPassword, setShowPassword] = useState<boolean>(false);
+export default function SignUp() {
+  const { register } = useAuth();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+  const [showPassword, setShowPassword] = useState(false);
   const [emailError, setEmailError] = useState<string>("");
   const router = useRouter();
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+
+    // Clear email error when the user modifies the email field
+    if (name === "email") {
+      setEmailError("");
+    }
+  };
 
   const validateEmail = (email: string): boolean => {
     const allowedDomains = ["@gmail.com", "@tothenew.com"];
     return allowedDomains.some((domain) => email.endsWith(domain));
   };
 
-  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.target.value);
-    setEmailError("");
-  };
-
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
 
     // Validate email domain
-    if (!validateEmail(email)) {
+    if (!validateEmail(formData.email)) {
       setEmailError("Only Gmail and ToTheNew email domains are allowed");
       return;
     }
 
-    login(email, password);
+    register(formData.name, formData.email, formData.password);
+  };
+
+  const handleReset = () => {
+    setFormData({ name: "", email: "", password: "" });
+    setEmailError("");
   };
 
   return (
-    <div className={styles.login_container}>
-      <div className={styles.login_layout}>
-        <div className={styles.login_title}>
-          <h3>Login</h3>
+    <div className={styles.signUp_container}>
+      <div className={styles.signUp_layout}>
+        <div className={styles.signUp_title}>
+          <h3>Sign Up</h3>
         </div>
-        <div className={styles.signup_option}>
-          <p>Are you a new member? </p>
+        <div className={styles.login_option}>
+          <p>Already a member?</p>
           <input
             type="button"
-            value="Sign up here."
-            onClick={() => router.push("/register")}
+            value="Login here"
+            onClick={() => router.push("/login")}
           />
         </div>
-
         <form className={styles.form_div} onSubmit={handleSubmit}>
+          <div className={styles.label_input_flex_div}>
+            <label htmlFor="name">Name</label>
+            <div className={styles.input_div}>
+              <div className={styles.wrapper_input}>
+                <Image src={nameIcon} height={15} width={15} alt="name" />
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Enter your name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
           <div className={styles.label_input_flex_div}>
             <label htmlFor="email">Email</label>
             <div className={styles.input_div}>
@@ -63,8 +93,8 @@ export default function Login() {
                   type="email"
                   name="email"
                   placeholder="Enter your email"
-                  value={email}
-                  onChange={handleEmailChange}
+                  value={formData.email}
+                  onChange={handleChange}
                   required
                 />
               </div>
@@ -83,8 +113,8 @@ export default function Login() {
                   type={showPassword ? "text" : "password"}
                   name="password"
                   placeholder="Enter your password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  value={formData.password}
+                  onChange={handleChange}
                   required
                 />
               </div>
@@ -93,31 +123,25 @@ export default function Login() {
                 height={15}
                 width={15}
                 alt="eye_icon"
+                className={styles.eye_icon}
                 onClick={() => setShowPassword(!showPassword)}
                 style={{ cursor: "pointer" }}
               />
             </div>
           </div>
 
-          <div className={styles.login_btn_div}>
-            <button type="submit">Login</button>
+          <div className={styles.signUp_btn_div}>
+            <button type="submit">Sign Up</button>
           </div>
 
           <div className={styles.reset_btn_div}>
-            <button
-              type="button"
-              onClick={() => {
-                setEmail("");
-                setPassword("");
-                setEmailError("");
-              }}
-            >
+            <button type="button" onClick={handleReset}>
               Reset
             </button>
           </div>
 
           <div className={styles.forget_password_div}>
-            <p>Forget Password?</p>
+            <p>Forgot Password?</p>
           </div>
         </form>
       </div>

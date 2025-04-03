@@ -1,10 +1,10 @@
 "use client";
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import styles from "@/app/styles/DisplayDoctor.module.css";
-import SearchBar from "./SearchBar";
+import SearchBar from "../ui/SearchBar";
 import DoctorCard from "./DoctorCard";
-import Filter from "./Filter";
-import Footer from "./Footer";
+import Filter from "../ui/Filter";
+import Footer from "../common/Footer";
 
 interface Doctor {
   doctor_id: string;
@@ -104,7 +104,7 @@ export default function DisplayDoctor() {
 
         const data = await response.json();
         setDoctors(data.data);
-        setPagination(prev => ({
+        setPagination((prev) => ({
           totalRecords: page === 1 ? data.totalRecords : prev.totalRecords,
           totalPages: page === 1 ? data.totalPages : prev.totalPages,
           currentPage: data.currentPage,
@@ -166,7 +166,10 @@ export default function DisplayDoctor() {
 
       <div className={styles.filter_cards}>
         <div className={styles.filter_component_div}>
-          <Filter onFilterChange={handleFilterChange} currentFilters={filters} />
+          <Filter
+            onFilterChange={handleFilterChange}
+            currentFilters={filters}
+          />
         </div>
         <div className={styles.cards_and_pagination}>
           <article className={styles.cards_container}>
@@ -221,7 +224,10 @@ export default function DisplayDoctor() {
               X
             </button>
             <div className={styles.filter_component_div_sidebar}>
-              <Filter onFilterChange={handleFilterChange} currentFilters={filters} />
+              <Filter
+                onFilterChange={handleFilterChange}
+                currentFilters={filters}
+              />
             </div>
           </aside>
         </div>

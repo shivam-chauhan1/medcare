@@ -1,5 +1,5 @@
 "use client";
-import LandingPage from "@/app/components/LandingPage";
+import LandingPage from "@/app/components/HomePage";
 import NotLogin from "@/app/components/NotLogin";
 import { useAuth } from "@/app/contextApi/authContext";
 import React from "react";

@@ -1,5 +1,5 @@
 "use client";
-import Footer from "@/app/components/Footer";
+import Footer from "@/app/components/common/Footer";
 import NotLogin from "@/app/components/NotLogin";
 import Review from "@/app/components/Review";
 import { useAuth } from "@/app/contextApi/authContext";

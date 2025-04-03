@@ -3,7 +3,7 @@
 import React, { MouseEvent } from "react";
 import { useRouter } from "next/navigation";
 import styles from "@/app/styles/NavButtons.module.css";
-import { useAuth } from "../contextApi/authContext";
+import { useAuth } from "../../contextApi/authContext";
 
 const Component = () => {
   const router = useRouter();
